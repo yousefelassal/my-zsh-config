@@ -1,3 +1,21 @@
+# Load Antigen
+source ~/.antigen.zsh
+
+# Fix: Load compinit before applying Antigen
+autoload -Uz compinit
+compinit -i
+
+# Load plugins
+antigen use oh-my-zsh
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle git
+antigen bundle pip
+antigen bundle fzf
+antigen bundle zsh-completions
+antigen bundle node
+antigen apply
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -6,7 +24,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Set up the prompt
-
 autoload -Uz promptinit
 promptinit
 prompt adam1
@@ -26,6 +43,8 @@ autoload -Uz compinit
 compinit
 
 bindkey '^H' backward-kill-word
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
@@ -45,23 +64,10 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-source ~/.antigen.zsh
-
-# Load plugins
-antigen use oh-my-zsh
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle git
-antigen bundle pip
-antigen bundle fzf
-antigen bundle zsh-completions
-antigen bundle node
-antigen apply
-
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# To customize prompt, run p10k configure or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export NVM_DIR="$HOME/.nvm"
@@ -88,3 +94,10 @@ alias ng-operator="cd ~/shezlong/ng-operator && code ."
 alias ng-client-therapist="cd ~/shezlong/ng-client-therapist && code ."
 alias hono-qr="cd ~/hono-qr && code ."
 alias react-qr="cd ~/react-qr && code ."
+alias staging="git checkout staging && git pull"
+alias alpha="git checkout alpha && git pull"
+alias prod="git checkout production && git pull"
+alias cursor='~/Applications/cursor.AppImage --no-sandbox'
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
