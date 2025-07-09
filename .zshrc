@@ -94,9 +94,13 @@ alias ng-operator="cd ~/shezlong/ng-operator && code ."
 alias ng-client-therapist="cd ~/shezlong/ng-client-therapist && code ."
 alias hono-qr="cd ~/hono-qr && code ."
 alias react-qr="cd ~/react-qr && code ."
+alias 3ads="cd ~/3ads/3ads-bgeba-be && code ."
+alias 3ads-fe="cd ~/3ads/3ads-bgeba-fe && code ."
 alias staging="git checkout staging && git pull"
 alias alpha="git checkout alpha && git pull"
 alias prod="git checkout production && git pull"
+alias master="git checkout master && git pull"
+alias main="git checkout main && git pull"
 alias cursor='~/Applications/cursor.AppImage --no-sandbox'
 
 # Load Angular CLI autocompletion.
