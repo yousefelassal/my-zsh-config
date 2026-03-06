@@ -154,7 +154,8 @@ compinit
 # End of Docker CLI completions
 eval "$(zoxide init zsh)"
 
-
+# k8s autocompletion
+source <(kubectl completion zsh)
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
