@@ -89,6 +89,7 @@ plugins=(
   zsh-history-substring-search
   you-should-use
   fzf-tab
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
